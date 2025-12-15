@@ -5,6 +5,11 @@ import os
 app = Flask(__name__)
 CORS(app)  # Allow frontend to call API
 
+@app.route("/", methods=["GET"])
+def home():
+    return "Hash Identifier is running!"
+
+
 @app.route('/identify', methods=['POST'])
 def identify():
     data = request.get_json()
@@ -22,3 +27,4 @@ def identify():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
