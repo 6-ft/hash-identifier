@@ -281,11 +281,9 @@ window.addEventListener("resize", () => {
 });
     
 function identifyHash() {
-    // Get the hash input value
     const hash = document.getElementById("hashInput").value.trim();
-    if (!hash) return;  // Don't proceed if there's no hash input
+    if (!hash) return;
 
-    // Display loading message and hide previous results
     const box = document.getElementById("resultBox");
     box.style.display = "block";
     document.getElementById("hashFormat").innerText = "Loading...";
@@ -293,17 +291,15 @@ function identifyHash() {
     document.getElementById("accuracy").innerText = "";
     document.getElementById("salted").innerText = "";
 
-    // Call the backend API to identify the hash
+    // Call backend API on Render
     fetch("https://hash-identifier.onrender.com/identify", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ hash: hash }), // Send the hash as JSON in the request body
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ hash: hash })
     })
-    .then(response => response.json())  // Parse the JSON response from the API
+    .then(response => response.json())
     .then(data => {
-        // Display the results from the API
+        // Populate result box with API response
         document.getElementById("hashFormat").innerText = data.name || "Unknown";
         document.getElementById("hashMode").innerText = data.hash_mode || "-";
         document.getElementById("accuracy").innerText = data.accuracy || "-";
