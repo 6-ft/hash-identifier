@@ -1,4 +1,10 @@
-flask==2.3.2
-flask-cors==3.1.2
+# Web framework
+Flask>=2.3.2,<3
+Flask-Cors>=3.0.10,<7
+
+# Encryption for database hiding
+cryptography>=41.0.3,<42
+
+
 
 
