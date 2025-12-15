@@ -1,23 +1,26 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-CORS(app)  # Allow frontend to call API
+CORS(app)
 
+# Serve frontend HTML
 @app.route("/", methods=["GET"])
 def home():
-    return "Hash Identifier is running!"
+    return send_from_directory("static", "index.html")  # loads index.html
 
-
-@app.route('/identify', methods=['POST'])
+# Hash identification API
+@app.route("/identify", methods=["POST"])
 def identify():
     data = request.get_json()
     hash_value = data.get("hash")
 
-    # Example logic (replace with actual hash detection)
+    if not hash_value:
+        return jsonify({"error": "No hash provided"}), 400
+
     response = {
-        "name": "MD5",       # placeholder
+        "name": "MD5",
         "hash_mode": "MD5",
         "accuracy": 95,
         "salted": False
@@ -27,4 +30,3 @@ def identify():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
-
