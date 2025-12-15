@@ -280,7 +280,7 @@ window.addEventListener("resize", () => {
     height = canvas.height = window.innerHeight;
 });
     
-function identifyHash() {
+async function identifyHash() {
     const hash = document.getElementById("hashInput").value.trim();
     if (!hash) return;
 
@@ -291,27 +291,31 @@ function identifyHash() {
     document.getElementById("accuracy").innerText = "";
     document.getElementById("salted").innerText = "";
 
-    // Call backend API on Render
-    fetch("https://hash-identifier.onrender.com/identify", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ hash: hash })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Populate result box with API response
-        document.getElementById("hashFormat").innerText = data.name || "Unknown";
-        document.getElementById("hashMode").innerText = data.hash_mode || "-";
-        document.getElementById("accuracy").innerText = data.accuracy || "-";
-        document.getElementById("salted").innerText = data.salted !== undefined ? data.salted : "-";
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        document.getElementById("hashFormat").innerText = "Error calling API";
-        document.getElementById("hashMode").innerText = "-";
-        document.getElementById("accuracy").innerText = "-";
-        document.getElementById("salted").innerText = "-";
-    });
+    try {
+        const response = await fetch("https://hash-identifier.onrender.com/identify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ hash: hash })
+        });
+
+        if (!response.ok) throw new Error("Server error");
+
+        const data = await response.json();
+
+        document.getElementById("hashFormat").innerText = data.name;
+        document.getElementById("hashMode").innerText = data.hash_mode; // Displays "numeric" or "unknown"
+        document.getElementById("accuracy").innerText = data.accuracy;
+        document.getElementById("salted").innerText = data.salted ? "Yes" : "No";
+
+    } catch (err) {
+        document.getElementById("hashFormat").innerText = "Error";
+        document.getElementById("hashMode").innerText = "";
+        document.getElementById("accuracy").innerText = "";
+        document.getElementById("salted").innerText = "";
+        console.error(err);
+    }
+}
+
 
 }
 </script>
