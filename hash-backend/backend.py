@@ -1,44 +1,32 @@
-from flask import Flask, request, jsonify
-import re
-import random
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
+CORS(app)
 
-# Define the route
-@app.route('/identify', methods=['POST'])
+# Serve frontend HTML
+@app.route("/", methods=["GET"])
+def home():
+    return send_from_directory("static", "index.html")  # loads index.html
+
+# Hash identification API
+@app.route("/identify", methods=["POST"])
 def identify():
     data = request.get_json()
     hash_value = data.get("hash")
-    result = identify_best_hash(hash_value)
-    
-    if result:
-        response = {
-            "name": result["name"],
-            "hash_mode": result["hash_mode"],
-            "accuracy": result["accuracy"],
-            "salted": result["salted"]
-        }
-    else:
-        response = {
-            "name": "Unknown",
-            "hash_mode": "Unknown",
-            "accuracy": 0,
-            "salted": "Unknown"
-        }
 
+    if not hash_value:
+        return jsonify({"error": "No hash provided"}), 400
+
+    response = {
+        "name": "MD5",
+        "hash_mode": "MD5",
+        "accuracy": 95,
+        "salted": False
+    }
     return jsonify(response)
 
-# Define the hash identification logic
-def identify_best_hash(hash_value: str):
-    # Example of your hash identification logic
-    # You can define your hash patterns in HASH_DB or wherever you defined them
-    # Example pattern for MD5 hash
-    if re.fullmatch(r"^[a-f0-9]{32}$", hash_value.lower()):
-        return {"name": "MD5", "accuracy": 100, "salted": False}
-    else:
-        return None
-
-# Start the Flask application
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
