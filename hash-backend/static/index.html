@@ -280,6 +280,7 @@ window.addEventListener("resize", () => {
     height = canvas.height = window.innerHeight;
 });
     
+function identifyHash() {    
 async function identifyHash() {
     const hash = document.getElementById("hashInput").value.trim();
     if (!hash) return;
