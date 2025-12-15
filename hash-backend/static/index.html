@@ -281,41 +281,34 @@ window.addEventListener("resize", () => {
 });
 
 function identifyHash() {
-    // Get the hash input value
-    const hash = document.getElementById("hashInput").value.trim();
-    if (!hash) return;  // Don't proceed if there's no hash input
+            const hash = document.getElementById("hashInput").value.trim();
+            if (!hash) return;
+            
+            const box = document.getElementById("resultBox");
+            box.style.display = "block";
+            document.getElementById("hashFormat").innerText = "Loading...";
+            document.getElementById("hashMode").innerText = "";
+            document.getElementById("accuracy").innerText = "";
+            document.getElementById("salted").innerText = "";
 
-    // Display loading message and hide previous results
-    const box = document.getElementById("resultBox");
-    box.style.display = "block";
-    document.getElementById("hashFormat").innerText = "Loading...";
-    document.getElementById("hashMode").innerText = "";
-    document.getElementById("accuracy").innerText = "";
-    document.getElementById("salted").innerText = "";
-
-    // Call the backend API to identify the hash
-    fetch("https://hash-identifier.onrender.com/identify", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ hash: hash }), // Send the hash as JSON in the request body
-    })
-    .then(response => response.json())  // Parse the JSON response from the API
-    .then(data => {
-        // Display the results from the API
-        document.getElementById("hashFormat").innerText = data.name || "Unknown";
-        document.getElementById("hashMode").innerText = data.hash_mode || "-";
-        document.getElementById("accuracy").innerText = data.accuracy || "-";
-        document.getElementById("salted").innerText = data.salted !== undefined ? data.salted : "-";
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        document.getElementById("hashFormat").innerText = "Error calling API";
-        document.getElementById("hashMode").innerText = "-";
-        document.getElementById("accuracy").innerText = "-";
-        document.getElementById("salted").innerText = "-";
-    });
+            // Make an API call to the Flask backend
+            fetch('https://hash-identifier.onrender.com/identify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ hash: hash })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("hashFormat").innerText = data.name || "Unknown";
+                document.getElementById("hashMode").innerText = data.hash_mode || "Unknown";
+                document.getElementById("accuracy").innerText = data.accuracy || "0";
+                document.getElementById("salted").innerText = data.salted ? "YES" : "NO";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
 
 }
 </script>
