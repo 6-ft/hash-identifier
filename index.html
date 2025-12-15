@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hash Identifier</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Courier New", monospace;
+    background: #0a0a0a;
+    color: #00ff00;
+    overflow-x: hidden;
+}
+
+/* MATRIX BACKGROUND */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* NAVIGATION */
+nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+nav a.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00ff00;
+    text-decoration: none;
+    text-shadow: 0 0 12px #00ff00, 0 0 20px #0f0;
+    transition: 0.3s ease;
+}
+
+nav a.logo:hover {
+    text-shadow: 0 0 25px #00ff00, 0 0 40px #0f0;
+}
+
+/* Nav links */
+nav .nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav .nav-links a {
+    color: #00ff00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav .nav-links a:hover {
+    text-shadow: 0 0 12px #00ff00;
+}
+
+/* CONTAINER */
+.container {
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    gap: 30px;
+}
+
+/* HEADING */
+h1 {
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #00ff00;
+    text-shadow: 0 0 12px #00ff00, 0 0 20px #0f0;
+}
+
+/* INPUT */
+input[type="text"] {
+    width: 90vw;
+    max-width: 1200px;
+    min-height: 60px;
+    padding: 18px;
+    border-radius: 14px;
+    border: 2px solid #00ff00;
+    background: #0a0a0a;
+    color: #00ff00;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 0 10px #00ff00 inset;
+}
+
+/* BUTTON */
+button {
+    padding: 14px 40px;
+    border-radius: 14px;
+    border: 1.5px solid #00ff00;
+    background: #0a0a0a;
+    color: #00ff00;
+    font-size: 1.05rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 18px #00ff00;
+    transform: translateY(-1px);
+}
+
+/* RESULT BOX */
+.result-box {
+    display: none;
+    width: 90vw;
+    max-width: 1200px;
+    background: #0a0a0a;
+    padding: 35px 45px;
+    border-radius: 18px;
+    box-shadow: 0 0 15px #00ff00;
+    text-align: left;
+}
+
+.result-box p {
+    margin: 12px 0;
+    font-size: 1.05rem;
+}
+
+/* SOCIAL LINKS */
+.social-links {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(0,255,0,0.4);
+    background: #0a0a0a;
+    color: #00ff00;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.social svg {
+    width: 22px;
+    height: 22px;
+    fill: #00ff00;
+}
+
+.social:hover {
+    box-shadow: 0 0 18px #00ff00;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 80px;
+    text-align: center;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    h1 { font-size: 2rem; }
+    input[type="text"] { width: 95vw; }
+    nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+    nav .nav-links { gap: 15px; margin-top: 10px; }
+}
+</style>
+</head>
+
+<body>
+<canvas id="matrixCanvas"></canvas>
+
+<nav>
+    <a class="logo" href="https://github.com/6-ft" target="_blank"> <img src="C:\Users\HP\Downloads\33705-pfp.png" alt="Logo" style="height:90px; vertical-align:middle; margin-right:30px;"></a>
+    <div class="nav-links">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Hash Identifier</h1>
+
+    <input type="text" id="hashInput" placeholder="Paste hash here">
+
+    <button onclick="identifyHash()">IDENTIFY HASH</button>
+
+    <div class="result-box" id="resultBox">
+        <p>Hash Format: <span id="hashFormat"></span></p>
+        <p>Hash Mode: <span id="hashMode"></span></p>
+        <p>Accuracy: <span id="accuracy"></span>%</p>
+        <p>Salted: <span id="salted"></span></p>
+    </div>
+
+    <div class="social-links">
+        <a class="social" href="https://github.com/dashboard" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.385.6.113.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.42-1.305.763-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.47-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.957-.266 1.98-.4 3-.405 1.02.005 2.043.139 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.11.81 2.24v3.32c0 .32.195.695.8.575C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/></svg>
+            GitHub
+        </a>
+    </div>
+</div>
+
+
+<script>
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+let width = window.innerWidth;
+let height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()";
+const fontSize = 11;
+let columns = Math.floor(width / fontSize);
+let drops = Array(columns).fill(1);
+
+let matrixInterval;
+
+function startMatrix() {
+    matrixInterval = setInterval(drawMatrix, 50);
+}
+
+function drawMatrix() {
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = "#0f0";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
+}
+
+// Initialize matrix
+startMatrix();
+
+// Handle window resize
+window.addEventListener("resize", () => {
+    clearInterval(matrixInterval); // Stop old interval
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    columns = Math.floor(width / fontSize);
+    drops = Array(columns).fill(1); // Reinitialize drops
+    startMatrix(); // Restart interval
+});
+
+
+setInterval(drawMatrix, 50);
+window.addEventListener("resize", () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+
+function identifyHash() {
+    const hash = document.getElementById("hashInput").value.trim();
+    if (!hash) return;
+    const box = document.getElementById("resultBox");
+    box.style.display = "block";
+    document.getElementById("hashFormat").innerText = "Loading...";
+    document.getElementById("hashMode").innerText = "";
+    document.getElementById("accuracy").innerText = "";
+    document.getElementById("salted").innerText = "";
+    // Call backend API here
+}
+</script>
+</body>
+</html>
