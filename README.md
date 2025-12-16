@@ -1,117 +1,54 @@
-🔐 Hash Identifier
+# 🔐 Hash Identifier
 
+![Version](https://img.shields.io/badge/version-1.0-brightgreen?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/6-ft/hash-identifier?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/6-ft/hash-identifier?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/6-ft/hash-identifier?style=for-the-badge)
+![License](https://img.shields.io/github/license/6-ft/hash-identifier?style=for-the-badge)
+![Python](https://img.shields.io/badge/python-3.7%2B-blue?style=for-the-badge)
 
+---
 
+## 🔍 Overview
 
+Hash Identifier is a fast and reliable **hash detection tool**.  
+It works both as a **CLI tool** and as a base for a **web-based hash detection utility**.  
 
+Perfect for **security enthusiasts, pentesters, CTF players, and beginners**.
 
+---
 
+## ⚙️ Features
 
+- 🧠 Identifies 30+ common hash types  
+- 🔐 Detects salted vs non-salted hashes  
+- 📊 Shows matching confidence  
+- 💻 CLI-based (offline)  
+- 🌐 Easy to extend to web front‑end  
+- 🛠 Beginner‑friendly code  
 
+---
 
-A simple and fast Hash Identifier tool that helps you detect what type of hash you are working with.
+## 🧾 Supported Hash Types
 
-This project is made for beginners, learners, and anyone who works with hashes in CTF, security, or daily research.
-It works as a CLI tool and also has a web version.
+| Category | Examples |
+|----------|----------|
+| Classic | MD5, MD4, SHA1 |
+| SHA Families | SHA224, SHA256, SHA384, SHA512 |
+| SHA‑3 & SHAKE | SHA3‑256, SHA3‑512, SHAKE128, SHAKE256 |
+| Key Derivation | PBKDF2, bcrypt, Argon2 |
+| Crypt Formats | Unix Crypt, WordPress, phpBB3 |
+| Database | PostgreSQL, MySQL, MSSQL, Oracle |
+| Network | WPA PMKID, WPA‑EAPOL |
+| Files | ZIP, RAR, PDF, Office |
+| Others | RIPEMD‑160, Tiger, Whirlpool, Blake2 |
 
-✨ What this tool does
+---
 
-• Identifies many popular hash formats
-• Detects if a hash is salted or not
-• Shows accuracy level
-• Supports modern and old hashing algorithms
-• Clean output, easy to understand
-• No internet required for CLI version
+## 🚀 Quick Start
 
-🧠 Supported hash types
+### Clone the Project
 
-This tool can identify many hashes like:
-
-MD5, MD4
-
-SHA1, SHA224, SHA256, SHA384, SHA512
-
-SHA3, SHAKE
-
-bcrypt
-
-Argon2 (i, d, id)
-
-PBKDF2
-
-Unix crypt hashes
-
-WordPress, phpBB, Drupal
-
-MySQL, MSSQL, Oracle
-
-WPA, JWT, ZIP, RAR, PDF, Office
-
-and many more...
-
-🖥️ CLI Tool Usage
-1️⃣ Clone the repository
+```bash
 git clone https://github.com/6-ft/hash-identifier
 cd hash-identifier
-
-2️⃣ Run the tool
-python3 hash_identifier.py
-
-3️⃣ Paste your hash
-Paste hash: e99a18c428cb38d5f260853678922e03
-
-4️⃣ Get result
-Hash Format : MD5
-Salted     : NO
-Accuracy   : 100%
-Hash Mode  : 0
-
-🌐 Web Version
-
-I also created a web version of this hash identifier for easy use in browser.
-
-🔗 Website: (add your site link here)
-
-🎯 Who is this for?
-
-This tool is useful for:
-
-• Beginners learning cybersecurity
-• CTF players
-• Ethical hackers
-• Students
-• Developers
-• Anyone who works with hashes
-
-⚠️ Important Note
-
-This tool only identifies hash types.
-It does not crack passwords and does not break encryption.
-
-🚀 Future plans
-
-Better accuracy system
-
-Multiple hash detection
-
-Colored CLI output
-
-More hash formats
-
-Improved web UI
-
-👤 Author
-
-Made with ❤️ by 6-ft
-
-GitHub: https://github.com/6-ft
-
-⭐ Support
-
-If you like this project:
-
-Give it a ⭐ on GitHub
-
-Share it with others
-
-Use it and learn
