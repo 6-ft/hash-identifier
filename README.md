@@ -15,7 +15,6 @@ Use it in **CLI mode** or instantly online via the **web version**.
 
 Made for **beginners**, **CTF players**, and anyone exploring cybersecurity with an easy-to-use hash tool.
 
----
 
 ## ⚙️ Features
 
@@ -31,7 +30,7 @@ Made for **beginners**, **CTF players**, and anyone exploring cybersecurity with
 
 ```bash
 git clone https://github.com/6-ft/hash-identifier
-cd hash-format-identifier
+cd hash-identifier
 ```
 
 ### Run 
@@ -41,7 +40,7 @@ python3 hash-format-identifier.py
 ## 🌐 Web Version
 A web version of this tool is available for quick checks without a terminal:
 
-🔗[Visit Web Version](https://hash-identifier.netlify.app)
+🔗[hash-identifier.com](https://hash-identifier.netlify.app)
 
 
 ## 🧠 How It Works
@@ -59,8 +58,8 @@ If you like this project:
 ---
 ## 👤 Author
 
-Made with ❤️ by 6-ft:
+Made with ❤️ by Pulkit
 
-📌[github.com/6-ft](https://github.com/6-ft)
+🪪[github.com/6-ft](https://github.com/6-ft)
 
 
