@@ -96,3 +96,19 @@ if __name__ == "__main__":
         print(f"Accuracy   : {r['accuracy']}%")
         print(f"Hash Mode  : {r['hash_mode']}")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
