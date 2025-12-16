@@ -291,8 +291,8 @@ function identifyHash() {
     document.getElementById("accuracy").innerText = "";
     document.getElementById("salted").innerText = "";
 
-    // Corrected: Changed "https://hash-identifier.onrender.com/identify" to "/identify"
-    fetch("https://hash-identifier.onrender.com", {
+   
+    fetch("https://hash-identifier.up.railway.app/identify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ hash: hash })
