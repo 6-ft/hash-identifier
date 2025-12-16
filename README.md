@@ -59,9 +59,9 @@ python3 hash_identifier.py
 ---
 ## 🌐 Web Version
 A web version of this tool is available for quick checks without a terminal:
-```bash
+
 🔗[Visit Web Version](https://hash-identifier.netlify.app)
-```
+
 ---
 
 ## 🧠 How It Works
@@ -72,10 +72,10 @@ Estimates confidence if multiple hash types are possible.
 
 ---
 ## 👤 Author
-```
+
 Made with ❤️ by 6-ft
 https://github.com/6-ft
-```
+
 ---
 ## ⭐ Support
 If you like this project:
