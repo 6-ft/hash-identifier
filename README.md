@@ -25,23 +25,7 @@ Made for **beginners**, **CTF players**, and anyone exploring cybersecurity with
 - 💻 CLI-based (offline)  
 - 🛠 Beginner-friendly 
 
----
 
-## 🧾 Supported Hash Types
-
-| Category | Examples |
-|--------|---------|
-| Classic | MD5, MD4, SHA1 |
-| SHA Family | SHA224, SHA256, SHA384, SHA512 |
-| SHA‑3 & SHAKE | SHA3‑256, SHA3‑512, SHAKE128, SHAKE256 |
-| Key Derivation | PBKDF2, bcrypt, Argon2 |
-| CMS / Web | WordPress, phpBB3, Drupal7 |
-| Database | MySQL, PostgreSQL, MSSQL, Oracle |
-| Network | WPA PMKID, WPA‑EAPOL |
-| Files | ZIP, RAR, PDF, Office 2016+ |
-| Others | RIPEMD-160, Tiger, Whirlpool, Blake2 |
-
----
 
 ## ⚡ Terminal Launch
 
@@ -68,6 +52,24 @@ A web version of this tool is available for quick checks without a terminal:
 
 Uses regular expressions to match hashes against a database of known formats.
 Estimates confidence if multiple hash types are possible.
+
+---
+
+## 🧾 Supported Hash Types
+
+| Category | Examples |
+|--------|---------|
+| Classic | MD5, MD4, SHA1 |
+| SHA Family | SHA224, SHA256, SHA384, SHA512 |
+| SHA‑3 & SHAKE | SHA3‑256, SHA3‑512, SHAKE128, SHAKE256 |
+| Key Derivation | PBKDF2, bcrypt, Argon2 |
+| CMS / Web | WordPress, phpBB3, Drupal7 |
+| Database | MySQL, PostgreSQL, MSSQL, Oracle |
+| Network | WPA PMKID, WPA‑EAPOL |
+| Files | ZIP, RAR, PDF, Office 2016+ |
+| Others | RIPEMD-160, Tiger, Whirlpool, Blake2 |
+
+---
 
 
 ---
