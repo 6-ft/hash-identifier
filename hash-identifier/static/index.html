@@ -292,7 +292,7 @@ function identifyHash() {
     document.getElementById("salted").innerText = "";
 
     // Corrected: Changed "https://hash-identifier.onrender.com/identify" to "/identify"
-    fetch("/identify", {
+    fetch("https://hash-identifier.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ hash: hash })
