@@ -291,13 +291,19 @@ function identifyHash() {
     document.getElementById("accuracy").innerText = "";
     document.getElementById("salted").innerText = "";
 
-    // Call backend API
-    fetch("https://hash-identifier.onrender.com/identify", {
+    // Corrected: Changed "https://hash-identifier.onrender.com/identify" to "/identify"
+    fetch("/identify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ hash: hash })
     })
-    .then(response => response.json())
+    .then(response => {
+        // You should add a check here for non-200 responses (like 404 or 500)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
         document.getElementById("hashFormat").innerText = data.name;
         document.getElementById("hashMode").innerText = data.hash_mode;
@@ -307,9 +313,10 @@ function identifyHash() {
     .catch(error => {
         console.error("Error:", error);
         document.getElementById("hashFormat").innerText = "Error calling API";
+        document.getElementById("hashMode").innerText = "";
+        document.getElementById("accuracy").innerText = "N/A";
+        document.getElementById("salted").innerText = "N/A";
     });
-
-
 }
 </script>
 </body>
