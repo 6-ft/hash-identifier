@@ -4,7 +4,6 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/6-ft/hash-identifier?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/6-ft/hash-identifier?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/6-ft/hash-identifier?style=for-the-badge)
-![License](https://img.shields.io/github/license/6-ft/hash-identifier?style=for-the-badge)
 ![Python](https://img.shields.io/badge/python-3.7%2B-blue?style=for-the-badge)
 
 ---
@@ -53,15 +52,6 @@ Made for **beginners**, **CTF players**, and **security enthusiasts** who want a
 git clone https://github.com/6-ft/hash-identifier
 cd hash-identifier
 
-## 🚀 **Run the Tool (CLI)**
-
-### **Clone the Project**
-
-```bash
-git clone https://github.com/6-ft/hash-identifier
-cd hash-identifier
-
-
 🌐 Web Version
 
 A web version of this tool is available for quick checks without a terminal:
@@ -69,21 +59,24 @@ A web version of this tool is available for quick checks without a terminal:
 🔗 Website link
 
 (replace with your hosted site)
+
 🧠 How It Works
 
 Uses regular expressions to match hashes against a database of known formats.
 Estimates confidence if multiple hash types are possible.
+
 👤 Author
 
 Made with ❤️ by 6-ft
 
 GitHub: https://github.com/6-ft
+
 ⭐ Support
 
 If you like this project:
 
-    Give it a ⭐ on GitHub
+Give it a ⭐ on GitHub
 
-    Share it with friends
+Share it with friends
 
-    Use it and learn
+Use it and learn
