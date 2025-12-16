@@ -36,8 +36,7 @@ HASH_DB = [
     ("SHA512", r"^[a-f0-9]{128}$", False, 4, True, 512),
     ("SHA-3-256", r"^[a-f0-9]{64}$", False, 5, True, 1000),
     ("SHA-3-512", r"^[a-f0-9]{128}$", False, 5, True, 1010),
-    ("SHAKE128", r"^[a-f0-9]{32,64}$", False, 5, True, "unknown"),
-    ("SHAKE256", r"^[a-f0-9]{64,128}$", False, 5, True, "unknown"),
+    
 
     # ===== OTHER HASHES (DYNAMIC ACCURACY) =====
     ("scrypt", r"^\$scrypt\$.*", True, 5, False, 8900),
@@ -158,3 +157,4 @@ if __name__ == "__main__":
     # Ensure this port matches the requirements of your hosting environment (e.g., Render/Heroku)
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
