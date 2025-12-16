@@ -60,7 +60,7 @@ python3 hash_identifier.py
 ## 🌐 Web Version
 A web version of this tool is available for quick checks without a terminal:
 ```bash
-🔗 https://hash-identifier.netlify.app
+🔗[Visit Web Version](https://hash-identifier.netlify.app)
 ```
 ---
 
