@@ -53,6 +53,13 @@ A web version of this tool is available for quick checks without a terminal:
 Uses regular expressions to match hashes against a database of known formats.
 Estimates confidence if multiple hash types are possible.
 
+---
+## ⭐ Support
+If you like this project:
+
+- Give it a ⭐ on GitHub
+- Share it with friends
+- Use it and learn
 
 ---
 ## 👤 Author
@@ -61,12 +68,4 @@ Made with ❤️ by 6-ft:
 
 📌[github.com/6-ft](https://github.com/6-ft)
 
----
-## ⭐ Support
-If you like this project:
 
--Give it a ⭐ on GitHub
-
--Share it with friends
-
--Use it and learn
