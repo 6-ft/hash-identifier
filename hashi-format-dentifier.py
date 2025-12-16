@@ -1,11 +1,21 @@
+#!/usr/bin/env python3
 import re
 import random
 
-# ==================================================
-# HASH DATABASE
-# name, regex, salted, uniqueness_score, sure_match, hash_mode
-# ==================================================
-HASH_DB = [
+LOGO = (
+    "\n"
+    "██╗  ██╗ █████╗ ███████╗██╗  ██╗     ██╗██████╗ ███████╗███╗   ██╗████████╗██╗███████╗██╗███████╗██████╗\n"
+    "██║  ██║██╔══██╗██╔════╝██║  ██║     ██║██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗\n"
+    "███████║███████║███████╗███████║     ██║██║  ██║█████╗  ██╔██╗ ██║   ██║   ██║█████╗  ██║█████╗  ██████╔╝\n"
+    "██╔══██║██╔══██║╚════██║██╔══██║     ██║██║  ██║██╔══╝  ██║╚██╗██║   ██║   ██║██╔══╝  ██║██╔══╝  ██╔══██╗\n"
+    "██║  ██║██║  ██║███████║██║  ██║     ██║██████╔╝███████╗██║ ╚████║   ██║   ██║██║     ██║███████╗██║  ██║\n"
+    "╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝\n"
+    "\n"
+    "                              WELCOME TO HASH IDENTIFIER\n"
+    "                                 \033]8;;https://github.com/6-ft\033\\github.com/6-ft\033]8;;\033\\\n"
+)
+
+HASH_DB =  [
     # ===== SURE / UNIQUE IDENTIFIERS (100% ACCURACY) =====
     ("bcrypt", r"^\$2[aby]\$\d{2}\$[./A-Za-z0-9]{53}$", True, 5, True, 3200),
     ("Argon2id", r"^\$argon2id\$", True, 5, True, 13),
@@ -31,8 +41,7 @@ HASH_DB = [
     ("SHA512", r"^[a-f0-9]{128}$", False, 4, True, 512),
     ("SHA-3-256", r"^[a-f0-9]{64}$", False, 5, True, 1000),
     ("SHA-3-512", r"^[a-f0-9]{128}$", False, 5, True, 1010),
-    ("SHAKE128", r"^[a-f0-9]{32,64}$", False, 5, True, "unknown"),
-    ("SHAKE256", r"^[a-f0-9]{64,128}$", False, 5, True, "unknown"),
+
 
     # ===== OTHER HASHES (DYNAMIC ACCURACY) =====
     ("scrypt", r"^\$scrypt\$.*", True, 5, False, 8900),
@@ -59,73 +68,32 @@ HASH_DB = [
     ("Panama", r"^[a-f0-9]{128}$", False, 5, False, "unknown"),
 ]
 
-# ==================================================
-# ACCURACY CALCULATION FOR DYNAMIC HASHES
-# ==================================================
-def calculate_accuracy(uniqueness: int, salted: bool):
-    base = uniqueness * 15
-    if salted:
-        base += 10
-    noise = random.randint(-3, 3)
-    acc = base + noise
-    return max(10, min(acc, 99))  # dynamic hashes never reach 100%
+def calculate_accuracy(u, s):
+    acc = u * 15 + (10 if s else 0) + random.randint(-3, 3)
+    return max(10, min(acc, 99))
 
-# ==================================================
-# IDENTIFY HASH
-# ==================================================
-def identify_best_hash(hash_value: str):
-    sure_matches = []
-    dynamic_matches = []
+def identify_best_hash(h):
+    sure, dyn = [], []
+    for n, p, s, u, f, m in HASH_DB:
+        if re.fullmatch(p, h, re.IGNORECASE):
+            e = {"name": n, "salted": s, "hash_mode": m, "accuracy": 100 if f else calculate_accuracy(u, s), "uniqueness": u}
+            (sure if f else dyn).append(e)
+    if sure:
+        return max(sure, key=lambda x: x["uniqueness"])
+    if dyn:
+        return max(dyn, key=lambda x: (x["accuracy"], x["uniqueness"]))
+    return None
 
-    for name, pattern, salted, uniqueness, sure, mode in HASH_DB:
-        try:
-            if re.fullmatch(pattern, hash_value, re.IGNORECASE):
-                if sure:
-                    sure_matches.append({
-                        "name": name,
-                        "salted": salted,
-                        "accuracy": 100,
-                        "uniqueness": uniqueness,
-                        "hash_mode": mode
-                    })
-                else:
-                    acc = calculate_accuracy(uniqueness, salted)
-                    dynamic_matches.append({
-                        "name": name,
-                        "salted": salted,
-                        "accuracy": acc,
-                        "uniqueness": uniqueness,
-                        "hash_mode": mode
-                    })
-        except re.error:
-            continue
-
-    # Prioritize sure matches
-    if sure_matches:
-        sure_matches.sort(key=lambda x: x["uniqueness"], reverse=True)
-        return sure_matches[0]
-    elif dynamic_matches:
-        dynamic_matches.sort(key=lambda x: (x["accuracy"], x["uniqueness"]), reverse=True)
-        return dynamic_matches[0]
-    else:
-        return None
-
-# ==================================================
-# MAIN
-# ==================================================
 if __name__ == "__main__":
-    hv_raw = input("Paste hash: ").strip()
-    hv = hv_raw  # do NOT force lowercase
+    print(LOGO)
+    hv = input("Paste hash: ").strip()
+    r = identify_best_hash(hv)
 
-    result = identify_best_hash(hv)
-
-    if not result:
-        print("Hash Format : Unknown")
-        print("Salted     : Unknown")
-        print("Accuracy   : 0%")
-        print("Hash Mode  : Unknown")
+    if not r:
+        print("Hash Format : Unknown\nSalted     : Unknown\nAccuracy   : 0%\nHash Mode  : Unknown")
     else:
-        print(f"Hash Format : {result['name']}")
-        print(f"Salted     : {'YES' if result['salted'] else 'NO'}")
-        print(f"Accuracy   : {result['accuracy']}%")
-        print(f"Hash Mode  : {result['hash_mode']}")
+        print(f"Hash Format : {r['name']}")
+        print(f"Salted     : {'YES' if r['salted'] else 'NO'}")
+        print(f"Accuracy   : {r['accuracy']}%")
+        print(f"Hash Mode  : {r['hash_mode']}")
+
