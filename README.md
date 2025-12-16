@@ -1,9 +1,11 @@
 # 🔐 Hash Identifier
-![GitHub](https://img.shields.io/github/stars/6-ft/hash-identifier?style=for-the-badge&logo=github&logoColor=white)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Issues](https://img.shields.io/github/issues/6-ft/hash-identifier?style=for-the-badge&logo=github&logoColor=white)
-![Forks](https://img.shields.io/github/forks/6-ft/hash-identifier?style=for-the-badge&logo=github&logoColor=white)
-![Version](https://img.shields.io/badge/-v1.0-lightgrey?style=for-the-badge)
+
+![Version](https://img.shields.io/badge/version-1.0-brightgreen?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/6-ft/hash-identifier?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/6-ft/hash-identifier?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/6-ft/hash-identifier?style=for-the-badge)
+![Python](https://img.shields.io/badge/python-3.7%2B-blue?style=for-the-badge)
+
 ---
 
 ## 🔍 Overview
