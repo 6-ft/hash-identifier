@@ -11,7 +11,7 @@
 ## 🔍 Overview
 
 **Hash Identifier** is a fast and reliable tool to detect the type of a given hash.  
-Use it in **CLI mode** or instantly online via the **web version**.  
+Use it in **CLI MODE** or instantly online via the **WEB VERSION**.  
 
 Made for **beginners**, **CTF players**, and anyone exploring cybersecurity with an easy-to-use hash tool.
 
@@ -60,6 +60,6 @@ If you like this project:
 
 Made with ❤️ by Pulkit
 
-👤[github.com/6-ft](https://github.com/6-ft)
+👾[github.com/6-ft](https://github.com/6-ft)
 
 
