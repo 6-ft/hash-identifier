@@ -55,10 +55,9 @@ If you like this project:
 - Share it with friends
 - Use it and learn
 
----
 ## 👤 Author
 Made with ❤️ by Pulkit
 
-👾[github.com/6-ft](https://github.com/6-ft)
+👾[github.com/6-ft](https://github.com/6-ft)👾
 
 
