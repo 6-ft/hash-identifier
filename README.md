@@ -44,7 +44,7 @@ Made for **beginners**, **CTF players**, and **security enthusiasts** who want a
 
 ---
 
-## 🚀 Run the Tool (CLI)
+## ⚡ Terminal Launch
 
 ### Clone the Project
 
