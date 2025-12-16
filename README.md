@@ -53,18 +53,14 @@ Made for **beginners**, **CTF players**, and **security enthusiasts** who want a
 git clone https://github.com/6-ft/hash-identifier
 cd hash-identifier
 
-Run the CLI Tool
+## 🚀 **Run the Tool (CLI)**
 
-python3 hash_identifier.py
+### **Clone the Project**
 
-Example
+```bash
+git clone https://github.com/6-ft/hash-identifier
+cd hash-identifier
 
-Paste hash: 5f4dcc3b5aa765d61d8327deb882cf99
-
-Hash Format : MD5
-Salted     : NO
-Accuracy   : 100%
-Hash Mode  : 0
 
 🌐 Web Version
 
