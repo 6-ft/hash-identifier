@@ -60,6 +60,6 @@ If you like this project:
 
 Made with ❤️ by Pulkit
 
-🪪[github.com/6-ft](https://github.com/6-ft)
+👤[github.com/6-ft](https://github.com/6-ft)
 
 
