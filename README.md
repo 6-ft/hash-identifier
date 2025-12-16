@@ -50,33 +50,10 @@ Made for **beginners**, **CTF players**, and **security enthusiasts** who want a
 
 ```bash
 git clone https://github.com/6-ft/hash-identifier
-cd hash-identifier
+cd hash-format-identifier
+```
 
-🌐 Web Version
-
-A web version of this tool is available for quick checks without a terminal:
-
-🔗 Website link
-
-(replace with your hosted site)
-
-🧠 How It Works
-
-Uses regular expressions to match hashes against a database of known formats.
-Estimates confidence if multiple hash types are possible.
-
-👤 Author
-
-Made with ❤️ by 6-ft
-
-GitHub: https://github.com/6-ft
-
-⭐ Support
-
-If you like this project:
-
-Give it a ⭐ on GitHub
-
-Share it with friends
-
-Use it and learn
+### Run 
+```bash
+python3 hash_identifier.py
+```
