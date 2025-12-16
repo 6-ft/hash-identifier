@@ -57,7 +57,6 @@ If you like this project:
 
 ---
 ## 👤 Author
-
 Made with ❤️ by Pulkit
 
 👾[github.com/6-ft](https://github.com/6-ft)
