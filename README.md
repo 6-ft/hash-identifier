@@ -73,7 +73,7 @@ Estimates confidence if multiple hash types are possible.
 ---
 ## 👤 Author
 
-Made with ❤️ by 6-ft
+Made with ❤️ by 6-ft:
 📌[github.com/6-ft]https://github.com/6-ft
 
 ---
