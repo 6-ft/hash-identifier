@@ -25,8 +25,6 @@ Made for **beginners**, **CTF players**, and anyone exploring cybersecurity with
 - 💻 CLI-based (offline)  
 - 🛠 Beginner-friendly 
 
-
-
 ## ⚡ Terminal Launch
 
 ### Clone the Project
@@ -40,20 +38,17 @@ cd hash-format-identifier
 ```bash
 python3 hash-format-identifier.py
 ```
----
 ## 🌐 Web Version
 A web version of this tool is available for quick checks without a terminal:
 
 🔗[Visit Web Version](https://hash-identifier.netlify.app)
 
----
 
 ## 🧠 How It Works
 
 Uses regular expressions to match hashes against a database of known formats.
 Estimates confidence if multiple hash types are possible.
 
----
 ## ⭐ Support
 If you like this project:
 
