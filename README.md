@@ -2,7 +2,6 @@
 
 ![Version](https://img.shields.io/badge/version-1.0-brightgreen?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/6-ft/hash-identifier?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/6-ft/hash-identifier?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/6-ft/hash-identifier?style=for-the-badge)
 ![Python](https://img.shields.io/badge/python-3.7%2B-blue?style=for-the-badge)
 
