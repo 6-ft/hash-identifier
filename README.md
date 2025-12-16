@@ -11,44 +11,83 @@
 
 ## 🔍 Overview
 
-Hash Identifier is a fast and reliable **hash detection tool**.  
-It works both as a **CLI tool** and as a base for a **web-based hash detection utility**.  
+**Hash Identifier** is a fast and reliable tool to detect the type of a given hash.  
+It works as both a **CLI tool** and a **web-based utility**.  
 
-Perfect for **security enthusiasts, pentesters, CTF players, and beginners**.
+Made for **beginners**, **CTF players**, and **security enthusiasts** who want a clean, easy-to-use hash identifier.
 
 ---
 
 ## ⚙️ Features
 
-- 🧠 Identifies 30+ common hash types  
-- 🔐 Detects salted vs non-salted hashes  
+- 🧠 Detects 30+ common hash formats  
+- 🔐 Identifies salted vs non-salted hashes  
 - 📊 Shows matching confidence  
 - 💻 CLI-based (offline)  
-- 🌐 Easy to extend to web front‑end  
-- 🛠 Beginner‑friendly code  
+- 🌐 Easy to extend to web front-end  
+- 🛠 Beginner-friendly, clean code  
 
 ---
 
 ## 🧾 Supported Hash Types
 
 | Category | Examples |
-|----------|----------|
+|--------|---------|
 | Classic | MD5, MD4, SHA1 |
-| SHA Families | SHA224, SHA256, SHA384, SHA512 |
+| SHA Family | SHA224, SHA256, SHA384, SHA512 |
 | SHA‑3 & SHAKE | SHA3‑256, SHA3‑512, SHAKE128, SHAKE256 |
 | Key Derivation | PBKDF2, bcrypt, Argon2 |
-| Crypt Formats | Unix Crypt, WordPress, phpBB3 |
-| Database | PostgreSQL, MySQL, MSSQL, Oracle |
+| CMS / Web | WordPress, phpBB3, Drupal7 |
+| Database | MySQL, PostgreSQL, MSSQL, Oracle |
 | Network | WPA PMKID, WPA‑EAPOL |
-| Files | ZIP, RAR, PDF, Office |
-| Others | RIPEMD‑160, Tiger, Whirlpool, Blake2 |
+| Files | ZIP, RAR, PDF, Office 2016+ |
+| Others | RIPEMD-160, Tiger, Whirlpool, Blake2 |
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Run the Tool (CLI)
 
 ### Clone the Project
 
 ```bash
 git clone https://github.com/6-ft/hash-identifier
 cd hash-identifier
+
+Run the CLI Tool
+
+python3 hash_identifier.py
+
+Example
+
+Paste hash: 5f4dcc3b5aa765d61d8327deb882cf99
+
+Hash Format : MD5
+Salted     : NO
+Accuracy   : 100%
+Hash Mode  : 0
+
+🌐 Web Version
+
+A web version of this tool is available for quick checks without a terminal:
+
+🔗 Website link
+
+(replace with your hosted site)
+🧠 How It Works
+
+Uses regular expressions to match hashes against a database of known formats.
+Estimates confidence if multiple hash types are possible.
+👤 Author
+
+Made with ❤️ by 6-ft
+
+GitHub: https://github.com/6-ft
+⭐ Support
+
+If you like this project:
+
+    Give it a ⭐ on GitHub
+
+    Share it with friends
+
+    Use it and learn
