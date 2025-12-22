@@ -1,3 +1,4 @@
 Procfile linguist-vendored
 *.txt linguist-vendored
 docs/** linguist-vendored
+*.html -linguist-detectable
